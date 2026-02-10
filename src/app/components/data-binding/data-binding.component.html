@@ -8,4 +8,45 @@
         </div>
         <span>{{isActive}}</span>
     </div>
+    <div class="col-6">
+        2. Property Binding
+        <br>
+        <input type="text" [value]="firstName">
+        <br>
+        <input type="text" [placeholder]="myPlaceholder">
+        <br>
+        <div [class]="divClass" style="height: 100px;width: 100px;"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        3. Event Binding
+        <br>
+        <button class="btn btn-success" (click)="showWelcome()">Show Welcome Message</button>
+    </div>
+    <div class="col-3">
+        <select (change)="onCityChange()">
+            <option value="Tunis">Tunis</option>
+            <option value="Nabeul">Nabeul</option>
+            <option value="Beja">Beja</option>
+            <option value="Gafsa">Gafsa</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        4. Two Way Binding (ngModel)
+    <br>
+        <input type="text" [(ngModel)]="firstName">
+    </div>
+    <div class="col-3">
+        <br>
+        <select [(ngModel)]="selectedCity">
+            <option value="Tunis">Tunis</option>
+            <option value="Nabeul">Nabeul</option>
+            <option value="Beja">Beja</option>
+            <option value="Gafsa">Gafsa</option>
+        </select>
+        --{{selectedCity}}
+    </div>
 </div>
