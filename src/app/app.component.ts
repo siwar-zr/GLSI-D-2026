@@ -5,10 +5,13 @@ import { UserComponent } from './components/user/user.component';
 import { DataBindingComponent } from "./components/data-binding/data-binding.component";
 import { NgIfComponent } from './components/ng-if/ng-if.component';
 import { NgForComponent } from "./components/ng-for/ng-for.component";
+import { NgClassComponent } from "./components/ng-class/ng-class.component";
+import { NgStyleComponent } from "./components/ng-style/ng-style.component";
+import { ControlfStatementComponent } from "./components/controlf-statement/controlf-statement.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgForComponent],
+  imports: [RouterOutlet, ControlfStatementComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

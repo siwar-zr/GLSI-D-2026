@@ -1,0 +1,109 @@
+<div class="row">
+    <div class="col-3">
+        @if (div1Visible == true) {
+            <div class="bg-success p-3">
+                Div 1
+            </div>
+        }   
+    </div>
+    <div class="col-3">
+        @if (isChecked == true) {
+        <div class="bg-primary p-3">
+            Checkbox is Checked
+        </div>
+        } @else {
+        <div class="bg-danger p-3">
+            Checkbox is Unchecked
+        </div>
+        }
+
+    </div>
+    <div class="col-3">
+        @if (dayName == 'mon') {
+            <span>Monday</span>
+        }@else if (dayName == 'tue') {
+            <span>Tuesday</span>
+        }@else if (dayName == 'wed') {
+            <span>Wednesday</span>
+        }@else {
+            <span>Enter a valid Day Name</span>
+        }
+        
+    </div>
+</div>
+
+<div class="row pt-2">
+    <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="hideShowDiv(true)">Show</button>
+        <button class="btn btn-danger mx-2" (click)="hideShowDiv(false)">Hide</button>
+    </div>
+    <div class="col-3">
+        <input type="checkbox" [(ngModel)]="isChecked" />
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="dayName" maxlength="3" placeholder="Enter day name starting" >
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 p-2" [ngSwitch]="modesOfTransport">
+        <div *ngSwitchCase="'roadway'">We can travel by bus, car, etc..</div>
+        <div *ngSwitchCase="'airway'">We can travel by plane, etc..</div>
+        <div *ngSwitchCase="'trailway'">We can travel by train, etc..</div>
+        <div *ngSwitchDefault>No way Found</div>
+        @switch (modesOfTransport) {
+            @case ('roadway') {
+                <b>We can travel by bus, car, etc..</b>
+            }
+            @case ('airway') {
+                <b>We can travel by plane, etc..</b>
+            }
+            @case ('trailway') {
+                <b>We can travel by train, etc..</b>
+            }
+            @default {
+                <b>No way found</b>
+            }
+
+        }
+    </div>
+    <div class="col-3">
+        <select>
+            @for (item of cityList; track $index) {
+                <option>{{item}}--{{$index}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-4">
+        @for (city of cityList; track $index) {
+            <button class="btn btn-warning mx-1">{{city}}</button>
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <input type="text" [(ngModel)]="modesOfTransport">
+    </div>
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Contact No</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of employeeArray; track $index) {
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.city}}</td>
+                        <td>{{item.contactNo}}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

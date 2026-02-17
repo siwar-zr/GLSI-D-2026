@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-3 p-3" [ngClass]="divBgColor">
+        Div 1
+    </div>
+    <div class="col-3 p-3" [ngClass]="isChecked == true ? 'bg-success' : 'bg-danger'">
+        Div 2
+    </div>
+    <div class="col-3 p-3" [ngClass]="div3ClassName">
+        Div 3
+    </div>
+    <div [class]="divBgColor" class="col-3">
+        Div 4
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="addDiv1Color('bg-success')">Add Green</button>
+        <button class="btn btn-danger mx-2" (click)="addDiv1Color('bg-danger')">Add Red</button>
+    </div>
+    <div class="col-3">
+        <input type="checkbox" [(ngModel)]="isChecked"/>
+        --{{isChecked}}
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="div3ClassName" />
+    </div>
+</div>
