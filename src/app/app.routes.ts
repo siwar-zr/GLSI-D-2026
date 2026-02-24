@@ -3,6 +3,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
 import { NgClass } from '@angular/common';
 import { NgClassComponent } from './components/ng-class/ng-class.component';
+import { TemplateFormComponent } from './components/forms/template-form/template-form.component';
+import { ReactiveFormComponent } from './components/forms/reactive-form/reactive-form.component';
 
 export const routes: Routes = [
     {
@@ -21,5 +23,14 @@ export const routes: Routes = [
     {
         path:'ng-class',
         component: NgClassComponent
+    }
+    ,
+    {
+        path:'template-form',
+        component: TemplateFormComponent
+    },
+    {
+        path:'reactive-form',
+        component: ReactiveFormComponent
     }
 ];
