@@ -8,6 +8,10 @@ import { ReactiveFormComponent } from './components/forms/reactive-form/reactive
 import { GetApiComponent } from './components/API/get-api/get-api.component';
 import { PostApiComponent } from './components/API/post-api/post-api.component';
 import { CustomerComponent } from './components/API/customer/customer.component';
+import { LifeCycleComponent } from './components/life-cycle/life-cycle.component';
+import { NgIfComponent } from './components/ng-if/ng-if.component';
+import { NgForComponent } from './components/ng-for/ng-for.component';
+import { NgStyleComponent } from './components/ng-style/ng-style.component';
 
 export const routes: Routes = [
     {
@@ -24,10 +28,21 @@ export const routes: Routes = [
         component: DataBindingComponent
     },
     {
+        path:'ng-if',
+        component: NgIfComponent
+    },
+    {
+        path:'ng-for',
+        component: NgForComponent
+    },
+    {
         path:'ng-class',
         component: NgClassComponent
-    }
-    ,
+    },
+    {
+        path:'ng-style',
+        component: NgStyleComponent
+    },
     {
         path:'template-form',
         component: TemplateFormComponent
@@ -47,5 +62,9 @@ export const routes: Routes = [
     {
         path:'customer',
         component: CustomerComponent
+    },
+    {
+        path:'life-cycle',
+        component: LifeCycleComponent
     }
 ];

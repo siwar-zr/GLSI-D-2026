@@ -12,8 +12,16 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="'dataBinding'">Data-Binding</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="ng-class">Ng-Class</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Directives
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="ng-if">NgIf</a></li>
+            <li><a class="dropdown-item" routerLink="ng-for">NgFor</a></li>
+            <li><a class="dropdown-item" routerLink="ng-class">NgClass</a></li>
+            <li><a class="dropdown-item" routerLink="ng-style">NgStyle</a></li>
+          </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -36,6 +44,9 @@
 
             
           </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="life-cycle">Life Cycle</a>
         </li>
         
       </ul>

@@ -1,5 +1,54 @@
+<div class="row p-3">
+    <div class="col-4">
+        <app-progress-bar [progressValue]="80"></app-progress-bar>
+    </div>
+</div>
 <div class="row">
     <div class="col-3">
+        coursename => {{courseName}}
+        <br>
+        uppercase => {{courseName | uppercase}}
+    </div>
+    <div class="col-3">
+        coursename => {{courseName}}
+        <br>
+        lowercase => {{courseName | lowercase}}
+    </div>
+    <div class="col-3">
+        Student => {{studentObj}}
+        <br>
+        StudentJson => {{studentObj | json}}
+    </div>
+    <div class="col-3">
+        <!--{{employeeArray | json}}-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        currentDate => {{currentDate}}
+        <br>
+        date only => {{currentDate | date}}
+    </div>
+    <div class="col-3">
+        currentDate => {{currentDate}}
+        <br>
+        date only => {{currentDate | date: 'dd-MMM-yy'}}
+    </div>
+    <div class="col-3">
+        currentDate => {{currentDate}}
+        <br>
+        date only => {{currentDate | date: 'dd-MM-yyyy'}}
+    </div>
+    <div class="col-3">
+        currentDate => {{currentDate}}
+        <br>
+        date only => {{currentDate | date: 'dd/MM/yyyy'}}
+        <br>
+        time only => {{currentDate | date: 'hh:mm:ss'}}
+    </div>
+</div>
+<div class="row pt-5">
+    <div class="col-2">
         <ul>
             <li *ngFor="let city of cityList">{{city}}</li>
         </ul>
@@ -31,14 +80,18 @@
                     <th>Name</th>
                     <th>City</th>
                     <th>Contact No</th>
+                    <th>Attendance</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let employee of employeeArray; let srno = index">
                     <td>{{srno+1}}</td>
-                    <td>{{employee.name}}</td>
-                    <td>{{employee.city}}</td>
+                    <td>{{employee.name | na}}</td>
+                    <td>{{employee.city | uppercase}}</td>
                     <td>{{employee.contactNo}}</td>
+                    <td>
+                        <app-progress-bar [progressValue]="employee.attendance"></app-progress-bar>
+                    </td>
                 </tr>
             </tbody>
         </table>

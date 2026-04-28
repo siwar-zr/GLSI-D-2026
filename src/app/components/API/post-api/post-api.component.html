@@ -2,13 +2,20 @@
     <div class="col-8 text-center">
         <h2>POST API Integration using Template Form</h2>
     </div>
-    <div class="col-4">
+    <!--<div class="col-4">
         <button class="btn btn-success" (click)="getAllCars()">Load Cars</button>
+    </div>-->
+</div>
+<div class="row">
+    <div class="col-12 text-center">
+        <app-tabs [tabList]="['Car List', 'New Car Form']" (onTabClicked)="onTabChange($event)"></app-tabs>
     </div>
 </div>
+--{{currentTab}}
 
 <div class="row pt-2">
-    <div class="col-7">
+    @if (currentTab == 'Car List') {
+    <div class="col-12">
         <div class="card">
             <div class="card-header bg-warning">
                 <h5>Car List</h5>
@@ -23,29 +30,30 @@
                             <th>Reg No</th>
                             <th>Daily Rate</th>
                             <th>Actions</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
                         @for (item of carList; track $index) {
-                            <tr>
-                                <td>{{$index+1}}</td>
-                                <td>{{item.brand}}</td>
-                                <td>{{item.model}}</td>
-                                <td>{{item.regNo}}</td>
-                                <td>{{item.dailyRate}}</td>
-                                <td>
-                                    <button class="btn btn-warning" (click)="onEdit(item)">Edit</button>
-                                    <button class="btn btn-danger" (click)="onDelete(item.carId)">Delete</button>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>{{$index+1}}</td>
+                            <td>{{item.brand}}</td>
+                            <td>{{item.model}}</td>
+                            <td>{{item.regNo}}</td>
+                            <td>{{item.dailyRate}}</td>
+                            <td>
+                                <button class="btn btn-warning" (click)="onEdit(item)">Edit</button>
+                                <button class="btn btn-danger" (click)="onDelete(item.carId)">Delete</button>
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <div class="col-5">
+    } @else {
+    <div class="col-12">
         <div class="card">
             <div class="card-header bg-warning">
                 <h5>Create New Car</h5>
@@ -54,15 +62,18 @@
                 <div class="row">
                     <div class="col-6 mt-2">
                         <label>Reg No</label>
-                        <input type="text" [(ngModel)]="carObj.regNo" class="form-control" placeholder="Enter Car Reg No">
+                        <input type="text" [(ngModel)]="carObj.regNo" class="form-control"
+                            placeholder="Enter Car Reg No">
                     </div>
                     <div class="col-6 mt-2">
                         <label>Brand</label>
-                        <input type="text" [(ngModel)]="carObj.brand" class="form-control" placeholder="Enter Car Brand">
+                        <input type="text" [(ngModel)]="carObj.brand" class="form-control"
+                            placeholder="Enter Car Brand">
                     </div>
                     <div class="col-6 mt-2">
                         <label>Model</label>
-                        <input type="text" [(ngModel)]="carObj.model" class="form-control" placeholder="Enter Car Model">
+                        <input type="text" [(ngModel)]="carObj.model" class="form-control"
+                            placeholder="Enter Car Model">
                     </div>
                     <div class="col-6 mt-2">
                         <label>Year</label>
@@ -70,15 +81,18 @@
                     </div>
                     <div class="col-6 mt-2">
                         <label>Color</label>
-                        <input type="text" [(ngModel)]="carObj.color" class="form-control" placeholder="Enter Car Color">
+                        <input type="text" [(ngModel)]="carObj.color" class="form-control"
+                            placeholder="Enter Car Color">
                     </div>
                     <div class="col-6 mt-2">
                         <label>Daily Rate</label>
-                        <input type="text" [(ngModel)]="carObj.dailyRate" class="form-control" placeholder="Enter Car Daily rate">
+                        <input type="text" [(ngModel)]="carObj.dailyRate" class="form-control"
+                            placeholder="Enter Car Daily rate">
                     </div>
                     <div class="col-6 mt-2">
                         <label>Car Image URL</label>
-                        <input type="text" [(ngModel)]="carObj.carImage" class="form-control" placeholder="Enter Car Image URL">
+                        <input type="text" [(ngModel)]="carObj.carImage" class="form-control"
+                            placeholder="Enter Car Image URL">
                     </div>
                 </div>
                 <div class="row">
@@ -86,15 +100,16 @@
                         <button class="btn btn-secondary m-2">Reset Form</button>
                         --{{carObj.carId}}
                         @if (carObj.carId == 0){
-                            <button class="btn btn-success m-2" (click)="onSaveCar()">Save Car</button>
+                        <button class="btn btn-success m-2" (click)="onSaveCar()">Save Car</button>
                         } @else {
-                            <button class="btn btn-warning m-2" (click)="updateCar()">Update Car</button>
+                        <button class="btn btn-warning m-2" (click)="updateCar()">Update Car</button>
                         }
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    }
 
+</div>
